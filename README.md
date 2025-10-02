@@ -36,7 +36,7 @@ We shared the pretrained models and dataset used in our paper, in order to allow
 
 ## Training Scripts
 
-We share here the scripts used to trained the checkpoints shared above.
+We share here the scripts used to trained the checkpoints shared above. Prior to running these trainings, make sure you have configured the necessary paths and downloaded the published datasets.
 
 ### FactorVAE Model
 With an environment containing the necessary packages, please run
