@@ -1,0 +1,62 @@
+18:44:03 INFO - main: Root directory for saving and loading experiments: /media/raid/santiagojn/disentangling-vae-master/results/factor_serrano_test41_0.0005_0.00001_128_1000_20_500_normalized3
+18:44:03 WARNING - create_safe_directory: Directory /media/raid/santiagojn/disentangling-vae-master/results/factor_serrano_test41_0.0005_0.00001_128_1000_20_500_normalized3 already exists. Archiving it to /media/raid/santiagojn/disentangling-vae-master/results/factor_serrano_test41_0.0005_0.00001_128_1000_20_500_normalized3.zip
+18:44:03 INFO - main: FactorVAE does not duplicate the epochs anymore
+18:44:03 INFO - main: Train serrano with 9360 samples
+18:44:07 INFO - main: Num parameters in model: 577547
+18:44:07 INFO - __init__: Training Device: cuda:0
+Epoch 1:   0%|          | 0/74 [00:00<?, ?it/s]                                               Traceback (most recent call last):
+  File "/home/santiagojn/disentangling-vae-master/disvae/training.py", line 180, in _train_iteration
+    storer, latent_sample=latent_sample)
+  File "/home/santiagojn/disentangling-vae-master/disvae/models/losses.py", line 243, in __call__
+    raise ValueError("Use `call_optimize` to also train the discriminator")
+ValueError: Use `call_optimize` to also train the discriminator
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 312, in <module>
+    main(args)
+  File "main.py", line 269, in main
+    test_loss_f=test_loss_f)
+  File "/home/santiagojn/disentangling-vae-master/disvae/training.py", line 92, in __call__
+    mean_epoch_loss = self._train_epoch(data_loader, storer, epoch)
+  File "/home/santiagojn/disentangling-vae-master/disvae/training.py", line 153, in _train_epoch
+    iter_loss = self._train_iteration(data, storer)
+  File "/home/santiagojn/disentangling-vae-master/disvae/training.py", line 187, in _train_iteration
+    loss = self.loss_f.call_optimize(data, self.model, self.optimizer, storer)
+  File "/home/santiagojn/disentangling-vae-master/disvae/models/losses.py", line 314, in call_optimize
+    vae_loss.backward(retain_graph=True)
+  File "/home/santiagojn/.local/lib/python3.6/site-packages/torch/tensor.py", line 198, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph)
+  File "/home/santiagojn/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 100, in backward
+    allow_unreachable=True)  # allow_unreachable flag
+RuntimeError: CUDA out of memory. Tried to allocate 128.00 MiB (GPU 0; 10.76 GiB total capacity; 2.43 GiB already allocated; 90.56 MiB free; 2.44 GiB reserved in total by PyTorch) (malloc at /pytorch/c10/cuda/CUDACachingAllocator.cpp:289)
+frame #0: c10::Error::Error(c10::SourceLocation, std::string const&) + 0x46 (0x7efc6ef27536 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x1cf1e (0x7efc6f170f1e in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libc10_cuda.so)
+frame #2: <unknown function> + 0x1df9e (0x7efc6f171f9e in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libc10_cuda.so)
+frame #3: at::native::empty_cuda(c10::ArrayRef<long>, c10::TensorOptions const&, c10::optional<c10::MemoryFormat>) + 0x135 (0x7efc71d1dfd5 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xf9310b (0x7efc7031610b in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cuda.so)
+frame #5: <unknown function> + 0xfdc9f7 (0x7efc7035f9f7 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0x1075389 (0x7efca7caa389 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: <unknown function> + 0x10756c7 (0x7efca7caa6c7 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: <unknown function> + 0xe3c42e (0x7efca7a7142e in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: at::TensorIterator::fast_set_up() + 0x5cf (0x7efca7a722af in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: at::TensorIterator::build() + 0x4c (0x7efca7a72b6c in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::TensorIterator::binary_op(at::Tensor&, at::Tensor const&, at::Tensor const&, bool) + 0x146 (0x7efca7a73216 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x19dc0c0 (0x7efc70d5f0c0 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cuda.so)
+frame #13: at::native::threshold_backward_cuda(at::Tensor const&, at::Tensor const&, c10::Scalar) + 0x49 (0x7efc70d60b79 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cuda.so)
+frame #14: <unknown function> + 0xfa4e9f (0x7efc70327e9f in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cuda.so)
+frame #15: <unknown function> + 0x10c599b (0x7efca7cfa99b in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x2d50baa (0x7efca9985baa in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x10c599b (0x7efca7cfa99b in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: <unknown function> + 0x28b79af (0x7efca94ec9af in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: torch::autograd::generated::ReluBackward0::apply(std::vector<at::Tensor, std::allocator<at::Tensor> >&&) + 0xef (0x7efca94ecbbf in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: <unknown function> + 0x2d89c05 (0x7efca99bec05 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: torch::autograd::Engine::evaluate_function(std::shared_ptr<torch::autograd::GraphTask>&, torch::autograd::Node*, torch::autograd::InputBuffer&) + 0x16f3 (0x7efca99bbf03 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #22: torch::autograd::Engine::thread_main(std::shared_ptr<torch::autograd::GraphTask> const&, bool) + 0x3d2 (0x7efca99bcce2 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #23: torch::autograd::Engine::thread_init(int) + 0x39 (0x7efca99b5359 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_cpu.so)
+frame #24: torch::autograd::python::PythonEngine::thread_init(int) + 0x38 (0x7efcb60f4378 in /home/santiagojn/.local/lib/python3.6/site-packages/torch/lib/libtorch_python.so)
+frame #25: <unknown function> + 0xd44c0 (0x7efcb71da4c0 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #26: <unknown function> + 0x76db (0x7efcb993a6db in /lib/x86_64-linux-gnu/libpthread.so.0)
+frame #27: clone + 0x3f (0x7efcb9c7361f in /lib/x86_64-linux-gnu/libc.so.6)
+

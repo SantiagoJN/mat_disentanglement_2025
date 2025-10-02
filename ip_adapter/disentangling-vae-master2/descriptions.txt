@@ -1,0 +1,100 @@
+## Descriptions of the different trainings ##
+<name_of_training> - <description_in_natural_language>
+
+<serrano-15> - Training 256x256 imgs with a subset of the training data to see if it converges better than using the whole train dataset
+<serrano-16> - The same as test 15, but now with 2000 epochs instead of 200, to see if it does something else
+<serrano-17> - Taking the folder of serrano-16, and leaving only 500 epochs (out of the 2000) to test the model at that point
+
+<serrano-17v2> - Training with 1k epochs, train_subset and bigger learning rate (10^-4) to see if it learns colors
+<serrano-18> - The same hyperparameters as 17v2, but now using mini-serrano dataset
+<serrano-19> - The same as 18, but now with the dataset with balanced glossinesses.
+
+<serrano-20> - Small training to test if now the balanced-glossiness dataset is properly built
+<serrano-21> - Big training (5k ep) with mini-serrano to test if it is able to converge with that subset of the data
+
+<serrano-22> - Test with lr 0.0001
+<serrano-24> - Test with lr 0.005
+<serrano-23> - Test with lr 0.0005
+
+<serrano-25> - Test with discriminator lr 0.000001
+<serrano-26> - Test with discriminator lr 0.000005
+<serrano-27> - Test with discriminator lr 0.00001
+
+<serrano-28> - Same hyperparameters as serrano-23, but now without computing test loss
+<serrano-29> - Trying to do the same as serrano-28 but with the no_grad() statement
+
+<serrano-30> - Same hyperparameters as serrano-23, but using masked-serrano as dataset
+<serrano-31> - Like serrano-30, but using Z=10, to see if we can learn masked-serrano with a 10D latent space
+<serrano-32> - Like serrano-31, but with 5000 epochs to see how much can it converge
+<serrano-33> - Like serrano-30, but using full-masked-serrano
+
+<serrano-34> - Same hyperparameters, but using masked-serrano2
+<serrano-35> - Same hyperparameters, but using pattern-serrano
+<serrano-36> - Same hyperparameters, but using masked-serrano3
+
+<serrano-37> - Same as masked-serrano (serrano-30), but with gaussian distribution to compute recon_loss
+<serrano-38> - Same as masked-serrano (serrano-30), but with laplace distribution to compute recon_loss
+
+<serrano-39> - Same as masked-serrano (serrano-30), but with an implementation of a "sampled" recon_loss
+<serrano-40> - Implementation 3 of "normalized" recon_loss, with a factor of 100
+<serrano-41> - Same as serrano-40, but with a factor of 1 (only getting the mean)
+
+<serrano-42> - Training like serrano-30 but only for 100 epochs (to make sure nothing is broken so far)
+<serrnao-43> - To debug de feature of applying the mask only for recon_loss
+<serrano-44> - Training like serrano-30 but with the 4th implementation for the recon_loss
+
+<serrano-45> - Training like serrano-30 with masked-blobs dataset
+<serrano-46> - Training like serrano-30 with masked-spheres dataset
+<serrano-47> - Training like serrano-30 with the masked-serrano in grayscale dataset
+<serrano-48> - The same configuration as serrano-46, to see if we can get another organization of the latent space
+
+<serrano-49> - Training masked-serrano with the recon_loss implementation 3, and trained with similar hyperparameters as MNIST
+<serrano-50> - The same as serrano-49, but with a slightly different factor parameter
+
+<serrano-52> - Training with the masked-buddhas dataset
+<serrano-53> - Training with the masked-dragons dataset
+<serrano-54> - Training with the gray-blobs dataset
+<serrano-55> - Training with the gray-spheres dataset
+<serrano-56> - Training with the gray-buddhas dataset
+<serrano-57> - Training with the gray-dragons dataset
+
+
+================================================================================
+TFM
+
+<serrano-59> - Model trained for 100 epochs, used to test the evaluation metrics
+<serrano-60> - Same as serrano-59, but for 500 epochs
+<serrano-61> - Same as serrano-59, but for 1000 epochs
+<serrano-62> - Same as serrano-59, but for 3500 epochs
+
+<serrano-63> - Model trained with Z4, to try to debug some metrics
+
+<serrano-64> - Model trained with (initial) Z40, to test the GECO implementation (dynamic shrinking of the latent space)
+<serrano-66> - Same as serrano-64, but now with a maximum error of 54k instead of 55k
+
+<serrano-65> - Model trained with the best hyperparameters found by the first execution of Optuna
+
+<beta-1> - Model trained with the normal hyperparameters, but with betaVAE as architecture
+<beta-2> - Same as beta-1, but trying a slightly different value for lr_disc
+<serrano-66> - FactorVAE model with the same hyperparameters as beta-1 (for comparing). Trained with masked-serrano
+<serrano-67> - FactorVAE model with the same hyperparameters as beta-2 (for comparing)
+
+<serrano-68> - Training to test the GECO implementation
+<serrano-69> - Same as serrano-68 but other hyperparameters
+
+<serrano-70> - Training with the training subset of the serrano dataset
+
+<serrano-71> - Training with more epochs to get the visualizations for the GIConf paper
+<serrano-72> - Same as 71, but with other hyperparameters to test if it doesn't overfit so much
+
+<serrano-73> - Model with the hyperparameters proposed in the Github we created after the internships, trying to get those plots
+
+<serrano-74> - Model trained with the custom dataset (mixing the Serrano and Analytic DSs)
+<serrano-75> - Model with the new custom dataset (trial3)
+
+<serrano-76> - Model similar to serrano-62, but with the train subset, for the VSS
+<serrano-77> - Same as serrano-76 but with Z12, to try to get better metrics
+
+<serrano-78> - To test if we can get a model as good as the good looking~~~~ (trained with masked-serrano)
+<serrano-79> - Same model as 76 but for 2k epochs, to see if we get sth more promising randomly (trained with masked-serrano-train)
+<serrano-80..81> - Same as model 76, trained for 4.5k epochs to see if we can get some model that works nice on train dataset
