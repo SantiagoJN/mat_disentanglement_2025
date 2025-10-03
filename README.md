@@ -2,7 +2,7 @@
 
 # A Controllable Appearance Representation for Flexible Transfer and Editing
 
-[![Project page](https://img.shields.io/badge/Project%20page-🌐-gray?color=blue)](https://graphics.unizar.es/projects/mat_disentanglement_2025/) [![Paper](https://img.shields.io/badge/Paper-PDF-black?&color=red)](https://arxiv.org/pdf/2504.15028)  [![Checkpoints](https://img.shields.io/badge/Pretrained%20models-ckpts%20-black&color=green)](https://nas-graphics.unizar.es/s/ZRCZfbEzw5Ba3p3)  [![Dataset](https://img.shields.io/badge/Dataset-%F0%9F%A4%97-black?color=orange)](https://huggingface.co/datasets/SantiagoJN/mat_disent)
+[![Project page](https://img.shields.io/badge/Project%20page-🌐-gray?color=blue)](https://graphics.unizar.es/projects/mat_disentanglement_2025/) [![Paper](https://img.shields.io/badge/Paper-PDF-black?&color=red)](https://arxiv.org/pdf/2504.15028)  [![Checkpoints](https://img.shields.io/badge/Pretrained%20models-ckpts%20-black&color=green)](https://nas-graphics.unizar.es/s/ZRCZfbEzw5Ba3p3)  [![Dataset](https://img.shields.io/badge/Dataset-🛢️-orange)](https://nas-graphics.unizar.es/s/95HXHsMQcjstktY)
 
 
 
